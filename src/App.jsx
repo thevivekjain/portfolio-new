@@ -14,7 +14,7 @@ import {
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { SiGeeksforgeeks, SiLeetcode } from "react-icons/si";
 
-const EMAIL = "vivekjain.patna@gmail.com";
+const EMAIL = "work@thevivekjain.in";
 
 const profile = {
   github: "https://github.com/thevivekjain",
@@ -415,81 +415,160 @@ function App() {
       <div className="mx-auto w-full max-w-[640px] px-4 pb-32 pt-10 sm:px-0 sm:pt-22">
         {/* GitHub contribution image */}
         {/* GitHub contribution image */}
-<motion.div
-  initial={{ opacity: 0, y: -12 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.55 }}
-  className="portfolio-scroll mb-5 w-full overflow-x-auto overflow-y-hidden rounded-[9px] sm:mb-5"
->
-  <a
-    href={profile.leetcode}
-    target="_blank"
-    rel="noreferrer"
-    className="block w-max"
-  >
-    <img
-  src="/assets/top1.png"
-  alt="GitHub contribution activity"
-  className={`block h-[120px] w-auto min-w-[640px] object-contain sm:h-[120px] sm:min-w-[640px] ${
-    dark ? "" : "invert"
-  }`}
-/>
-  </a>
-</motion.div>
-
-        {/* Hero */}
-        <header className="mb-10">
-          <motion.h1
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className={`text-[36px] font-bold leading-[1.04] tracking-[-0.035em] sm:text-[52px] ${
-              dark ? "text-white" : "text-[#171717]"
-            }`}
+        <motion.div
+          initial={{ opacity: 0, y: -12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.55 }}
+          className="portfolio-scroll mb-5 w-full overflow-x-auto overflow-y-hidden rounded-[9px] sm:mb-5"
+        >
+          <a
+            href={profile.leetcode}
+            target="_blank"
+            rel="noreferrer"
+            className="block w-max"
           >
-            Hi, I'm Vivek.
-          </motion.h1>
-
-          <div className="mt-2 flex flex-wrap items-center gap-x-2 gap-y-1">
-            <p
-              className={`text-[13px] font-medium sm:text-[15px] ${
-                dark ? "text-[#8e8e8e]" : "text-[#777]"
+            <img
+              src="/assets/top1.png"
+              alt="GitHub contribution activity"
+              className={`block h-[120px] w-auto min-w-[640px] object-contain sm:h-[120px] sm:min-w-[640px] ${
+                dark ? "" : "invert"
               }`}
-            >
-              MERN Stack Developer
-            </p>
+            />
+          </a>
+        </motion.div>
 
-            <span
-              className={dark ? "text-[#3b3b3b]" : "text-[#bdbdbd]"}
-            >
-              •
-            </span>
+ {/* Hero */}
+<header className="mb-10">
+  <motion.h1
+    initial="hidden"
+    animate="visible"
+    variants={{
+      hidden: {},
+      visible: {
+        transition: {
+          delayChildren: 0.15,
+          staggerChildren: 0.07,
+        },
+      },
+    }}
+    className="text-[40px] font-semibold leading-tight sm:text-[48px] lg:text-[52px]"
+  >
+    {"Hi, I'm Vivek.".split("").map((letter, index) => (
+      <motion.span
+        key={index}
+        variants={{
+          hidden: { opacity: 0, x: -8 },
+          visible: {
+            opacity: 1,
+            x: 0,
+            transition: {
+              duration: 0.25,
+              ease: "easeOut",
+            },
+          },
+        }}
+        style={{ display: "inline-block" }}
+      >
+        {letter === " " ? "\u00A0" : letter}
+      </motion.span>
+    ))}
+  </motion.h1>
 
-            <button
-              type="button"
-              onClick={copyEmail}
-              className={`inline-flex items-center gap-1.5 text-[12px] transition-colors sm:text-[14px] ${
-                dark
-                  ? "text-[#8e8e8e] hover:text-white"
-                  : "text-[#777] hover:text-black"
-              }`}
-            >
-              {EMAIL}
-              <Copy size={13} />
+  <div className="mt-2 flex flex-wrap items-center gap-x-2 gap-y-1">
+    {/* MERN Stack Developer with line */}
+    <motion.div
+      initial="hidden"
+      animate="visible"
+      variants={{
+        hidden: {},
+        visible: {
+          transition: {
+            delayChildren: 1.25,
+            staggerChildren: 0.06,
+          },
+        },
+      }}
+      className="flex items-center"
+    >
+      <motion.span
+        initial={{ opacity: 0, scaleY: 0 }}
+        animate={{ opacity: 1, scaleY: 1 }}
+        transition={{
+          delay: 1.1,
+          duration: 0.45,
+          ease: "easeOut",
+        }}
+        className={`mr-2 h-[18px] w-[1px] origin-center ${
+          dark ? "bg-[#8e8e8e]" : "bg-[#777]"
+        }`}
+      />
 
-              {copied && (
-                <span
-                  className={`text-[11px] ${
-                    dark ? "text-white" : "text-[#222]"
-                  }`}
-                >
-                  Copied
-                </span>
-              )}
-            </button>
-          </div>
-        </header>
+      <motion.p>
+        {"MERN Stack Developer".split("").map((letter, index) => (
+          <motion.span
+            key={index}
+            variants={{
+              hidden: { opacity: 0, x: -6 },
+              visible: {
+                opacity: 1,
+                x: 0,
+                transition: {
+                  duration: 0.11,
+                  ease: "easeOut",
+                },
+              },
+            }}
+            style={{ display: "inline-block" }}
+          >
+            {letter === " " ? "\u00A0" : letter}
+          </motion.span>
+        ))}
+      </motion.p>
+    </motion.div>
 
+    <span className={dark ? "text-[#3b3b3b]" : "text-[#bdbdbd]"}>
+      •
+    </span>
+
+    <button
+      type="button"
+      onClick={copyEmail}
+      className={`inline-flex items-center text-[12px] transition-colors sm:text-[14px] ${
+        dark
+          ? "text-[#8e8e8e] hover:text-white"
+          : "text-[#777] hover:text-black"
+      }`}
+    >
+      {EMAIL.split("").map((letter, index) => (
+        <motion.span
+          key={index}
+          initial={{ opacity: 0, x: -5 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{
+            delay: 2.5 + index * 0.045,
+            duration: 0.1,
+            ease: "easeOut",
+          }}
+          style={{ display: "inline-block" }}
+        >
+          {letter}
+        </motion.span>
+      ))}
+
+      <Copy size={13} />
+
+      {copied && (
+        <span
+          className={`text-[11px] ${
+            dark ? "text-white" : "text-[#222]"
+          }`}
+        >
+          Copied
+        </span>
+      )}
+    </button>
+  </div>
+</header>
         {/* About */}
         <section className="mb-10">
           <h2 className="mb-1 text-[20px] font-bold tracking-[-0.025em] sm:text-[22px]">
@@ -535,11 +614,7 @@ function App() {
 
           <div className="space-y-4">
             {achievements.map((item) => (
-              <AchievementRow
-                key={item.title}
-                item={item}
-                dark={dark}
-              />
+              <AchievementRow key={item.title} item={item} dark={dark} />
             ))}
           </div>
         </section>
@@ -560,9 +635,8 @@ function App() {
                 dark ? "text-[#969696]" : "text-[#707070]"
               }`}
             >
-              I’ve worked on real-world applications, from full-stack
-              platforms to responsive interfaces. Here are a few of my
-              projects.
+              I’ve worked on real-world applications, from full-stack platforms
+              to responsive interfaces. Here are a few of my projects.
             </p>
           </div>
 
@@ -643,15 +717,9 @@ function App() {
                     </div>
 
                     <div className="mt-3 flex flex-wrap gap-[6px]">
-                      <ProjectAction
-                        href={project.source}
-                        type="Source"
-                      />
+                      <ProjectAction href={project.source} type="Source" />
 
-                      <ProjectAction
-                        href={project.live}
-                        type="Demo"
-                      />
+                      <ProjectAction href={project.live} type="Demo" />
                     </div>
                   </div>
                 </div>
@@ -675,8 +743,15 @@ function App() {
               dark ? "text-[#9a9a9a]" : "text-[#707070]"
             }`}
           >
-            Have a project, question, or just want to say hello? Reach me
-            directly through email and I’ll get back to you whenever I can.
+            Interested in my work or have a project idea you'd like to discuss?
+            Feel free to reach out and connect with me at{" "}
+            <a
+              href={`mailto:${EMAIL}`}
+              className="font-semibold text-fuchsia-400 hover:underline"
+            >
+              {EMAIL}
+            </a>
+            . I’d be happy to hear from you.
           </p>
 
           <motion.button
@@ -753,16 +828,12 @@ function App() {
               {/* Header */}
               <div
                 className={`border-b pb-4 pr-10 ${
-                  dark
-                    ? "border-[#242424]"
-                    : "border-[#e7e7e7]"
+                  dark ? "border-[#242424]" : "border-[#e7e7e7]"
                 }`}
               >
                 <h3
                   className={`text-[23px] font-bold tracking-[-0.035em] sm:text-[25px] ${
-                    dark
-                      ? "text-[#f5f5f5]"
-                      : "text-[#171717]"
+                    dark ? "text-[#f5f5f5]" : "text-[#171717]"
                   }`}
                 >
                   Get in Touch
@@ -770,9 +841,7 @@ function App() {
 
                 <p
                   className={`mt-1 text-[12px] leading-6 sm:text-[13px] ${
-                    dark
-                      ? "text-[#858585]"
-                      : "text-[#777]"
+                    dark ? "text-[#858585]" : "text-[#777]"
                   }`}
                 >
                   Have a project or question? Send me a message.
