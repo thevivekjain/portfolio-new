@@ -28,15 +28,15 @@ const profile = {
 const achievements = [
   {
     title: "LeetCode",
-    subtitle: "Java ",
-    detail: "160+ Questions Solved",
+    subtitle: "160+ Questions Solved",
+    detail: "DSA (Java)",
     icon: SiLeetcode,
     href: profile.leetcode,
   },
   {
     title: "GeeksforGeeks",
-    subtitle: "Java ",
-    detail: "80+ Questions Solved",
+    subtitle: "80+ Questions Solved",
+    detail: "DSA (Java)",
     icon: SiGeeksforgeeks,
     href: profile.gfg,
   },
@@ -451,7 +451,7 @@ function App() {
         },
       },
     }}
-    className="text-[34px] font-bold leading-tight sm:text-[48px] lg:text-[52px]"
+    className="text-[34px] font-semibold leading-tight sm:font-bold sm:text-[48px] lg:text-[52px]"
   >
     {"Hi, I'm Vivek.".split("").map((letter, index) => (
       <motion.span
