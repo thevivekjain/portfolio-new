@@ -447,11 +447,11 @@ function App() {
       visible: {
         transition: {
           delayChildren: 0.15,
-          staggerChildren: 0.07,
+          staggerChildren: 0.060,
         },
       },
     }}
-    className="text-[40px] font-semibold leading-tight sm:text-[48px] lg:text-[52px]"
+    className="text-[34px] font-bold leading-tight sm:text-[48px] lg:text-[52px]"
   >
     {"Hi, I'm Vivek.".split("").map((letter, index) => (
       <motion.span
@@ -462,12 +462,12 @@ function App() {
             opacity: 1,
             x: 0,
             transition: {
-              duration: 0.25,
+              duration: 0.22,
               ease: "easeOut",
             },
           },
         }}
-        style={{ display: "inline-block" }}
+        style={{ display: "inline-block",marginRight: "-1.5px"  }}
       >
         {letter === " " ? "\u00A0" : letter}
       </motion.span>
@@ -483,8 +483,8 @@ function App() {
         hidden: {},
         visible: {
           transition: {
-            delayChildren: 1.25,
-            staggerChildren: 0.06,
+            delayChildren: 0.9,
+            staggerChildren: 0.045,
           },
         },
       }}
@@ -503,7 +503,7 @@ function App() {
         }`}
       />
 
-      <motion.p>
+      <motion.p className="text-[12px] sm:text-[14px]">
         {"MERN Stack Developer".split("").map((letter, index) => (
           <motion.span
             key={index}
@@ -513,7 +513,7 @@ function App() {
                 opacity: 1,
                 x: 0,
                 transition: {
-                  duration: 0.11,
+                  duration: 0.8,
                   ease: "easeOut",
                 },
               },
@@ -533,7 +533,7 @@ function App() {
     <button
       type="button"
       onClick={copyEmail}
-      className={`inline-flex items-center text-[12px] transition-colors sm:text-[14px] ${
+      className={`inline-flex items-center text-[11px] transition-colors sm:text-[14px] ${
         dark
           ? "text-[#8e8e8e] hover:text-white"
           : "text-[#777] hover:text-black"
@@ -545,8 +545,8 @@ function App() {
           initial={{ opacity: 0, x: -5 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{
-            delay: 2.5 + index * 0.045,
-            duration: 0.1,
+            delay: 2 + index * 0.035,
+            duration: 0.085,
             ease: "easeOut",
           }}
           style={{ display: "inline-block" }}
@@ -555,7 +555,7 @@ function App() {
         </motion.span>
       ))}
 
-      <Copy size={13} />
+      <Copy size={13} className="ml-1.5" />
 
       {copied && (
         <span
